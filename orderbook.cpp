@@ -23,7 +23,10 @@
 enum class OrderType {
     
     GoodTillCancel,
-    FillAndKill
+    FillAndKill,
+    FillOrKill,
+    GoodForDay,
+    Market,
 };
 
 enum class Side {
@@ -71,6 +74,10 @@ class Order {
             , remainingQuantity_{quantity}
             , timestamp_{timestamp} 
 
+        {   }
+
+        Order(OrderId orderId, Side side, Price price, Quantity quantity)
+            : Order{OrderType::Market, orderId, side, Constants::InvalidPrice, quantity, std::time_t(nullptr)} 
         {   }
 
         OrderType getOrderType() const { return type_; }
