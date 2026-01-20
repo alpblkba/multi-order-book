@@ -198,8 +198,8 @@ private:
     std::atomic<bool> shutdown_;
     std::thread pruneThread_; // background pruning thread
 
-    std::map<Price,OrderPointers,std::greater<Price>> bids_;
-    std::map<Price,OrderPointers,std::less<Price>> asks_;
+    std::map<Price,OrderPointers,std::greater<Price>> bids_; // buy sides descending
+    std::map<Price,OrderPointers,std::less<Price>> asks_; // sell sides ascending
     std::unordered_map<OrderId,OrderEntry> orders_;
     std::map<Price,LevelData,std::greater<Price>> data_;
 
