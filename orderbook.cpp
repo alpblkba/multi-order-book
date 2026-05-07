@@ -24,9 +24,9 @@ enum class OrderType {
     
     GoodTillCancel,
     FillAndKill,
-    FillOrKill,
-    GoodForDay,
-    Market,
+    FillOrKill, // added this but still learning what this is
+    GoodForDay, // good for cancel, canceled by the exchange for you
+    Market, // filled for the quantity, independent of price 
 };
 
 enum class Side {
